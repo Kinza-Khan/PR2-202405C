@@ -34,6 +34,7 @@
                                    </div>
                                     <button class="btn btn-info">Add User</button>
                         </div>
+                        <!-- col end -->
                 <!-- container end -->
             </div>
     <script src="jquery/jquery-3.7.1.js"></script>
@@ -43,10 +44,14 @@
         $("#userName").keyup(function(){
             let uName = $(this).val();
             // console.log(uName);
-            let uNameRE = /^[a-z]{3,}$/ ;
+            let uNameRE = /^[a-zA-Z\s]{3,}$/ ;
             if(!(uNameRE.test(uName))){
                         $(this).css("border","1px solid red");
                         $(this).next('small').show().text('please fill this field correctly').css('color','red');
+            }
+            else{
+                $(this).css("border","2px solid green");
+                $(this).next('small').hide();
             }
         })
      </script>
