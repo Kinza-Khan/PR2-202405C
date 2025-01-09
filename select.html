@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.min.css">
+    <title>Select</title>
+</head>
+<body>   
+    <div class="container p-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>                
+                    </tbody>
+                </table>
+    </div>
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script src="bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+    <script>
+        let allStudents = JSON.parse(localStorage.getItem('students'));
+        console.log(allStudents);
+        // console.log(localStorage.getItem('students'));
+        function selectData(){
+            allStudents.forEach((element,index) => {
+                    $('tbody').append(` <tr>
+                            <td >`+element.stdName+`</td>
+                            <td>`+element.stdEmail+`</td>
+                            <td>`+element.stdPassword+`</td>
+                            <td><button onclick="editData(`+index+`)" class="btn btn-info">Edit</button></td>
+                        </tr>`)
+           });
+        }
+        selectData();
+    </script>
+</body>
+</html>
