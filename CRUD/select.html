@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.min.css">
+    <title>Select</title>
+</head>
+<body>   
+    <div class="container p-5">
+        <a href="regularExpression.html" class="btn btn-info">Add User</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>                
+                    </tbody>
+                </table>
+    </div>
+
+            <!-- Button trigger modal -->
+           
+            
+            <!-- Modal -->
+            <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Student Record</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="form-group">
+                             <label for="">Name</label>
+                             <input type="text"  name="" id="uName" class="form-control" placeholder="" aria-describedby="helpId">
+                             <!-- <small id="helpId" class="text-muted"></small> -->
+                           </div>
+                           <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="text"  name="" id="uEmail" class="form-control" placeholder="" aria-describedby="helpId">
+                            <!-- <small id="helpId" class="text-muted"></small> -->
+                          </div>
+                          <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="text"  name="" id="uPassword" class="form-control" placeholder="" aria-describedby="helpId">
+                            <!-- <small id="helpId" class="text-muted"></small> -->
+                          </div>
+                          <button class="btn btn-info" onclick="updateData()">Update</button>
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script src="bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+    <script>
+        let allStudents = JSON.parse(localStorage.getItem('students'));
+        console.log(allStudents);
+        // console.log(localStorage.getItem('students'));
+        function selectData(){
+            allStudents.forEach((element,index) => {
+                    $('tbody').append(` <tr>
+                            <td >`+element.stdName+`</td>
+                            <td>`+element.stdEmail+`</td>
+                            <td>`+element.stdPassword+`</td>
+                            <td><button onclick="editData(`+index+`)" class="btn btn-info">Edit</button></td>
+                            <td><button onclick="removeData(`+index+`)" class="btn btn-danger">Remove</button></td>
+                        </tr>`)
+           });
+        }
+        selectData();
+       function editData(index){
+            let stdRecord = allStudents[index];
+            console.log(stdRecord);
+            console.log(stdRecord.stdName);
+            document.querySelector("#uName").value = stdRecord.stdName ;
+            document.querySelector("#uEmail").value = stdRecord.stdEmail;
+            document.querySelector("#uPassword").value = stdRecord.stdPassword ;
+            $("#modelId").modal('show');
+            window.index = index ;
+       }
+
+
+
+      function updateData(){
+                if( window.index >-1){
+                        let usName = document.querySelector('#uName').value;
+                        let usEmail = document.querySelector('#uEmail').value;
+                        let usPassword = document.querySelector('#uPassword').value;
+                        let updatedRecord = {stdName:usName,stdEmail:usEmail,stdPassword:usPassword};
+                        allStudents[ window.index ] = updateData ;
+                        localStorage.setItem('students',JSON.stringify(allStudents));
+                        selectData();
+                    $("#modelId").modal('hide');
+
+                }
+       }
+      
+      
+       function removeData(ind){
+            let data =    allStudents.splice(ind,1);
+           
+             
+       }
+
+    </script>
+</body>
+</html>

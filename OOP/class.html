@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+    
+
+
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script src="bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+    <script >
+
+        class Human{
+            name ;
+            food;
+            lang;
+            constructor(sName, sFood, sLang){
+                this.name = sName ;
+                this.food = sFood ;
+                this.lang = sLang ;
+                
+
+            }
+            eat(){
+                return "this student " + this.name + " eats " + this.food ;
+            }
+            speak(){
+                return "this student " + this.name + " speaks " + this.lang;
+            }
+            
+        }
+
+        let std1 = new Human('ali','Biryani','english');
+        console.log(std1.eat());
+        console.log(std1.speak('english'));
+    
+            </script>
+</body>
+</html>
