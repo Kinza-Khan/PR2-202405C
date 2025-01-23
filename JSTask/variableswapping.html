@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS TASK</title>
+</head>
+<body>
+   <input type="file">
+        <!-- variable swapping -->
+
+        <script>
+            let a = 10 ;
+            let b = 20 ;
+            console.log("before swapping value of a = " + a + " and value of b = " +  b);
+            // a = 20 , b = 10 ;
+             a  = a + b ; // 10 + 20 = 30  => a = 30;
+             b = a - b ; // 30 - 20 ; b = 10 
+             a =  a - b ; // 30 - 10 ; a = 20 ;
+
+             console.log("after swapping value of a = " + a + " and value of b = " +  b);
+             
+
+            //  find extension 
+            let fileUrl = location.href;
+            console.log(fileUrl);
+            let fileUrlSplit = fileUrl.split("/"); // return array like ["hhtp",'','127.0.0.0' ,'JSTask','filename']
+            console.log(fileUrlSplit);
+            let lastIndexValue = fileUrlSplit[fileUrlSplit.length-1]; // fileUrlSplit[5-1]
+            console.log(lastIndexValue);
+            let fileArray = lastIndexValue.split('.');
+            console.log(fileArray);
+            let fileExtension = fileArray[fileArray.length-1];
+            console.log(fileExtension);     
+
+
+            // fibonacci series 
+
+            let n1 = 0 ;
+            let n2 = 1 ;
+            let res ;
+            for (let i = 1 ; i <=10 ; i++ ) {
+                    res = n1+n2 ;  // 0 + 1 
+                    console.log(res);
+
+                    n1 = n2 ;  //  0 = 1 => n1  = 1
+                    n2 = res ; // 1 = 1 => n2 = 1
+                
+            }
+
+
+        </script>
+</body>
+</html>

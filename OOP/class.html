@@ -22,8 +22,8 @@
                 this.name = sName ;
                 this.food = sFood ;
                 this.lang = sLang ;
+                console.log('constructor run');
                 
-
             }
             eat(){
                 return "this student " + this.name + " eats " + this.food ;
@@ -33,10 +33,9 @@
             }
             
         }
-
         let std1 = new Human('ali','Biryani','english');
-        console.log(std1.eat());
-        console.log(std1.speak('english'));
+         console.log(std1.eat());
+         console.log(std1.speak());
     
             </script>
 </body>

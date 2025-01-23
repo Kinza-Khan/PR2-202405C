@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <ul>
+
+    </ul>
+
+    <script> 
+class Employee  
+  {  
+    constructor(id,name)  
+    {  
+      this.id=id;  
+      this.name=name;  
+    }  
+    detail()  
+    {  
+  return this.id+" "+this.name  ;
+    }  
+  }  
+  
+var e1=new Employee(101,"Ali");  
+var e2=new Employee(102,"Aqsa");  
+console.log(e1.detail());
+console.log(e2.detail());
+
+let stdRecords = [
+    {id : 1 , name :"ali"  },
+    {id : 2, name :"aqsa" },
+];
+stdRecords.forEach(element => {
+            document.querySelector("ul").innerHTML += `<li>` + element['id']+  " "+ element['name']+`</li>`;
+});
+</script>  
+
+ 
+</body>
+</html>
