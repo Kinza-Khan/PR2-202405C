@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STr character Count</title>
+</head>
+<body>
+    
+
+    <script>
+        let str  = "hello this is kinza" ;
+        let obj = {};
+        for (const element of str) {
+                    // console.log(element);
+                    if(obj[element]){
+                            obj[element] += 1 ;
+                    }
+                    else{
+                            obj[element] = 1 ;
+                    }
+        }
+        console.log(obj)
+    </script>
+</body>
+</html>
